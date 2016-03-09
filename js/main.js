@@ -1,7 +1,22 @@
-var $belowLi = $('<h2>');                     // Make a new HTML tag, notice the `<>`
-$belowLi.html('Below ground veggies');
-$('ul').prepend($belowLi);
+var $newH1 = $('<h1>');
+var $belowveggies = $('<ul>');
+var $aboveH1 = $('<h1>');
+var $aboveveggies = $('<ul>');
 
-var $aboveLi = $('<h2>');                     // Make a new HTML tag, notice the `<>`
-$aboveLi.html('Above ground veggies');
-$('ul').prepend($aboveLi);
+$newH1.html('Below ground veggies');
+$('body').prepend($newH1);
+
+$('body').append($belowveggies);
+
+$aboveH1.html('Above ground veggies');
+$('body').append($aboveH1);
+
+$('body').append($aboveveggies);
+
+$('ul li').each(function () {
+  if ($(this).hasClass('below')) {
+    $belowveggies.append($(this));
+  } else {
+    $aboveveggies.append($(this));
+  }
+});
